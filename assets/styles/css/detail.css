@@ -1,0 +1,10 @@
+.detail{color:#d1d3d8;background-color:transparent;border-color:#d1d3d8}
+
+.detail.focus,.detail:focus{color:#d1d3d8;background-color:transparent;border-color:transparent}
+.detail:hover{color:#d1d3d8;background-color:#a1a3a8;border-color:transparent}
+.detail.active,.detail:active,.open>.dropdown-toggle.detail{color:#d1d3d8;background-color:transparent;border-color:transparent}
+.detail.active.focus,.detail.active:focus,.detail.active:hover,.detail:active.focus,.detail:active:focus,.detail:active:hover,.open>.dropdown-toggle.detail.focus,.open>.dropdown-toggle.detail:focus,.open>.dropdown-toggle.detail:hover{color:#d1d3d8;background-color:transparent;border-color:transparent}
+.detail.active,.detail:active,.open>.dropdown-toggle.detail{background-image:none}
+.detail.disabled.focus,.detail.disabled:focus,.detail.disabled:hover,.detail[disabled].focus,.detail[disabled]:focus,.detail[disabled]:hover,fieldset[disabled] .detail.focus,fieldset[disabled] .detail:focus,fieldset[disabled] 
+.detail:hover{background-color:#d1d3d8;border-color:transparent}
+.detail .badge{color:#d1d3d8;background-color:#d1d3d8}

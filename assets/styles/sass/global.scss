@@ -1,0 +1,36 @@
+@import "var.scss";
+
+body {
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+
+a {
+  font-family: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
+.clearBoth { clear: both; }
+.clearBoth.inline { display: inline-block; vertical-align: top; }
+
+input, textarea { outline: none; }
+
+
+// Placeholder
+::-webkit-input-placeholder {
+  //opacity: 0.8;
+}
+:-ms-input-placeholder, :-moz-placeholder {
+  //opacity: 0.8;
+}
+
+// Selection
+::-moz-selection {
+  //color: #fff;
+  //background: #f00;
+}
+::selection {
+  //color: #fff;
+  //background: #f00;
+}
