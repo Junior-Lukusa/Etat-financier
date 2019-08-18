@@ -8,6 +8,8 @@
             if  ( isset($_GET['type']) and !empty($_GET['type']) )  { }
 
             if  ( isset($_GET['cash_initial']) )  {
+//                print_r($_GET['cash_initial']);
+//                exit;
                 ?>
                 <form class="form-horizontal" action="index.php?page=etat_financier" method="post">
                     <div class="container">
@@ -27,7 +29,10 @@
                                     </div>
                                     
                                     
-                                </div><!-- /.blog-post Formulaire principale --><hr>
+                                </div><!-- /.blog-post Formulaire principale -->
+                                <hr>
+                                <p>Pour remettre à zéro, taper <strong><em>00</em></strong> dans le champ</p>
+                                <hr>
                             </div><!-- /.blog-main -->
                             
                             <!--Boutton Ajouter-->
@@ -42,6 +47,7 @@
                                     </div>
                                 </div>
                             </div>
+                            
 
                         </div><!-- /.row -->
                     </div><!-- /.container -->

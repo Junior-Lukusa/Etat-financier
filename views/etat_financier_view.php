@@ -11,14 +11,22 @@
 
         $total_Rev= $db->query('SELECT SUM(cumul) FROM revenus_actifs');
         $total_r = $total_Rev -> fetch();
+        
 
         $total_Dep= $db->query('SELECT SUM(montant) FROM note_des_depenses');
         $total_d = $total_Dep -> fetch();
         
+      
+        $_possession = $_POST['cash_initial'] + ($total_r[0] - $total_d[0]);
         
-        $maj = $db->prepare('UPDATE users_parameters SET cash = (?) WHERE users_parameters.user_id = 1');
-        $_POST['cash_initial'] = $_POST['cash_initial'] - ($total_r[0] - $total_d[0]);
+        
+
+        
+        $maj = $db->prepare('UPDATE users_parameters SET cash_banque = (?) WHERE users_parameters.user_id = 1');
         $maj -> execute(array($_POST['cash_initial']));
+        
+ 
+        
     }
     
     
@@ -52,7 +60,7 @@
                     <p>Accumulé durant ce mois : '.$revSuppr['cumul'].'€</p>
                     <hr>
                     <a href="index.php?page=etat_financier&amp;nom_activite='.$revSuppr['description'].'&amp;salaire_net='.$revSuppr['revenu'].'&amp;frequence='.$revSuppr['frequence'].'&amp;date='.$revSuppr['date'].'&amp;cumul='.$revSuppr['cumul'].'&amp;id='.$revSuppr['id'].'
-                    " class="btn btn-danger"><strong>Rajouter</strong></a>
+                    " class="btn btn-danger"><strong>Rajouter ?</strong></a>
 
               </div>';
 
@@ -84,7 +92,7 @@
                     <hr>';
 //                    <!--a href="index.php?page=consulter_les_depenses&amp;description='.$depSuppr['description'].'&amp;montant='.$depSuppr['montant'].'&amp;type='.$depSuppr['types'].'&amp;categorie='.$depSuppr['categories'].'&amp;date='.$depSuppr['date'].'&amp;id='.$depSuppr['id'].'" class="btn btn-danger"><strong>Erreur</strong></a-->
                 echo '<button type="button" class="btn btn-primary" data-dismiss="alert" aria-label="Close">OK</button>
-                    <a href="#" class="btn btn-danger"><strong>Erreur</strong></a>
+                    <!--a href="#" class="btn btn-danger"><strong>Erreur ?</strong></a-->
 
               </div>';
 
@@ -141,7 +149,7 @@
                                       </button>
                                       <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                         <li><a href="index.php?page=etat_financier&amp;id_cumul='.$le_revenu_actif['id'].'&amp;salaire_net='.$le_revenu_actif['revenu'].'&amp;cumul='.$le_revenu_actif['cumul'].'">Ajouter <strong>'.$le_revenu_actif['revenu'].'</strong>€/'.$le_revenu_actif['frequence'].'</a></li>
-                                        <li><a href="#">Modifier</a></li>
+                                        <!--li><a href="#">Modifier</a></li-->
                                         <li><a href="index.php?page=etat_financier&amp;id_suppr='.$le_revenu_actif['id'].'">Supprimer</a></li>
                                       </ul>
                                  </div>';
@@ -189,7 +197,7 @@
 
 
 
-                <p><strong>Passifs</strong></p> 
+<!--                <p><strong>Passifs</strong></p> -->
             </div>
             <br><hr>
             
@@ -465,25 +473,15 @@
                       <table class="table">
                       	<?php $soldeBanque = round($total_c['cash_banque'],2);?>
                       	<?php $argentEspece = round($total_c['cash_espece'],2);?>
-                        <tr><td><strong>Compte en banque</strong></td><td><p style="text-align:center"><?php echo $soldeBanque;?>€</p></td></tr>
-                        <tr><td><strong>Argent en espèce </strong></td><td><p style="text-align:center"> <?php echo $argentEspece;?>€</p></td></tr>
+                          
+                          <tr>
+                              <td><strong>Cash initial </strong></td>
+                              <td>
+                                  <p style="text-align:center"> <?php echo ($argentEspece+$soldeBanque);?>€</p>
+                              </td>
+                          </tr>
+                          
                       </table>
-                    </div>
-                </div>
-            </div>
-            <hr>
-            <h2 style="text-align:center">Epargne</h2>
-            <div class="container-fluid" id="epargne">
-                <div class="epargne">
-                    <h1 style="text-align:center"><?php echo round($total_c['epargne'],2)?>€</h1>
-                </div>
-            </div>
-            <hr>
-            <h2 style="text-align:center">Sortie de la rat race</h2>
-            <div class="container-fluid" id="rat-race">
-                <div class="progress">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-                        0%
                     </div>
                 </div>
             </div>

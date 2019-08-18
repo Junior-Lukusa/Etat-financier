@@ -64,7 +64,7 @@ if ( isset($_GET['id_suppr']) and !empty($_GET['id_suppr']) ) {
                 <hr>
                 <a href="index.php?page=consulter_les_depenses&amp;description='.$depSuppr['description'].'&amp;montant='.$depSuppr['montant'].'&amp;type='.$depSuppr['types'].'&amp;categorie='.$depSuppr['categories'].'&amp;date='.$depSuppr['date'].'&amp;id='.$depSuppr['id'].'
                 
-                " class="btn btn-danger"><strong>Rajouter</strong></a>
+                " class="btn btn-danger"><strong>Rajouter ?</strong></a>
                 
           </div>';
     
@@ -93,10 +93,10 @@ if  (isset($_GET['id_credit_a_payer']) and !empty($_GET['id_credit_a_payer']))  
         $maj -> execute(array($_GET['date'], $_GET['id'] ));
     }
     
-    
-    $maj = $db->prepare('UPDATE credits SET montant = (?) WHERE credits.id_user = 1');
-    $paiement_credit = 0;
-    $maj -> execute(array($paiement_credit));
+    //Mise à jour du crédit payé à 0 dans la table des crédits
+//    $maj = $db->prepare('UPDATE credits SET montant = (?) WHERE credits.id_user = 1');
+//    $paiement_credit = 0;
+//    $maj -> execute(array($paiement_credit));
     
     
     $depenseCreditPaye = $db->query('SELECT * FROM credits WHERE id='.$_GET['id_credit_a_payer']);
@@ -110,9 +110,13 @@ if  (isset($_GET['id_credit_a_payer']) and !empty($_GET['id_credit_a_payer']))  
                 <p>Type : '.$depCredPay['types'].'</p>
                 <p>Catégorie : '.$depCredPay['categories'].'</p>
                 <p>du : '.$depCredPay['date'].'</p>
-                <hr>
-                <a href="#" class="btn btn-danger"><strong>Erreur</strong></a>                
+                <!--hr>
+                <a href="#" class="btn btn-danger"><strong>Erreur ?</strong></a-->                
           </div>';
+    
+    //Suppression du crédit payé dans la table des crédits
+    $maj = $db->query('DELETE FROM credits WHERE credits.id_user = 1');
+    
 }
 
 
@@ -141,7 +145,7 @@ if  (isset($_GET['id_credit_a_payer']) and !empty($_GET['id_credit_a_payer']))  
                                 <span class="caret"></span>
                               </button>
                               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Modifier</a></li>
+                                <!--li><a href="#">Modifier</a></li-->
                                 <li><a href="index.php?page=consulter_les_depenses&amp;id_suppr='.$la_depense['id'].'">Supprimer</a></li>
                                 
                                 
@@ -221,8 +225,7 @@ echo'</div>';
                                 <span class="caret"></span>
                               </button>
                               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="#">Modifier</a></li>
-                                <li><a href="index.php?page=consulter_les_depenses&amp;id_suppr='.$la_depense['id'].'">Supprimer</a></li>';
+                                <!--li><a href="#">Modifier</a></li-->';
                                 if ($la_depense['montant']!=0) {
                                     echo '<li><a href="index.php?page=consulter_les_depenses&amp;id_credit_a_payer='.$la_depense['id'].'">Payer le crédit</a></li>';
                                 }
