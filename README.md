@@ -32,12 +32,12 @@ Ces tables sont :
 
 ## Configuration de la table **utilisateurs**
 
-Si vous passez cette étape, il va falloir retenir que les identifiants de connexion par défaut sont :
+Si vous passez cette étape, il va falloir retenir que les **identifiants de connexion par défaut** sont :
 
-*   Prenom : Junior
-*   Mot de passe : D0m0@
+*   Prenom : **Junior**
+*   Mot de passe : **D0m0@**
 
-Sinon, accédez à la table utilisateurs via phpmyadmin et modifier ces champs avec vos propres informations
+Sinon, accédez à la table **utilisateurs** via **phpmyadmin** et modifier ces champs avec vos propres informations
 
 ## Configuration du fichier **config**
 
