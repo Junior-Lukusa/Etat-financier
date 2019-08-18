@@ -16,7 +16,7 @@ Vous aurez besoin, pour la configuration, d'avoir :
 
 * * *
 
-Cette version est fait pour un utilisateur unique. Si vous voulez un espace avec plusieurs utilisateurs, il faudra mettre en place la gestion de plusieurs utilisateurs et faire des jointure de table sql
+Cette version est faite pour un utilisateur unique. Si vous voulez un espace avec plusieurs utilisateurs, il faudra mettre en place la gestion de plusieurs utilisateurs et faire des jointures de table sql.
 
 ## Insertion des tables nécessaires au fonctionnement dans la base de donnée
 
@@ -41,7 +41,7 @@ Sinon, accédez à la table utilisateurs via phpmyadmin et modifier ces champs a
 
 ## Configuration du fichier **config**
 
-Une fois que vous avez télécharger les sources, il faudra modifier les information relatives à la base de données dans le fichier : **_config/config.php**.
+Une fois que vous auree téléchargé les sources, il faudra modifier les informations relatives à la base de données dans le fichier : **_config/config.php**.
 
 En bas du fichier vous verrez :
 
