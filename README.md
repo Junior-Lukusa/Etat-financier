@@ -45,11 +45,25 @@ Une fois que vous auree téléchargé les sources, il faudra modifier les inform
 
 En bas du fichier vous verrez :
 
-<pre>        // DataBase informations
-        define("DATABASE_HOST", "nom.hote");
-        define("DATABASE_NAME", "nom_base_de_donnees");
-        define("DATABASE_USER", "nom_utilisateur");
-        define("DATABASE_PASSWORD", "mot_de_passe");
-    </pre>
+<pre>
+    // DataBase informations
+    define("DATABASE_HOST", "nom.hote");
+    define("DATABASE_NAME", "nom_base_de_donnees");
+    define("DATABASE_USER", "nom_utilisateur");
+    define("DATABASE_PASSWORD", "mot_de_passe");
+</pre>
 
 Prenez le temps de remplacer "nom.hote", "nom_base_de_donnees" , "nom_utilisateur" et "mot_de_passe"
+
+
+
+## Contribution
+Si vous trouvez des points d'amélioration n'hésitez pas à modifier ce projet :
+* D'abord *Fork* ce repo
+* Créez une branche (```git checkout -b your-new-feature```)
+* Faites des *Commit* sur vos changements (```git commit -a -m 'what has been added'```)
+* Faites un *Push*  (```git push origin your-new-feature```)
+* Créez un *Pull Request*
+
+## License
+MIT
